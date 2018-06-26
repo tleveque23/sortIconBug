@@ -43,4 +43,10 @@ export class AppComponent {
       { field: 'color', header: 'Color' }
     ];
   }
+
+  onClick(event) {
+    // event.preventDefault();
+    // event.stopPropagation();
+    // event.stopImmediatePropagation();
+  }
 }

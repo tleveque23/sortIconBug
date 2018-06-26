@@ -4,9 +4,10 @@
 <p-table [columns]="cols" [value]="cars1">
   <ng-template pTemplate="header" let-columns>
     <tr>
-      <th *ngFor="let col of columns" [pSortableColumn]="col.field">
+      <th *ngFor="let col of columns" [pSortableColumn]="col.field" [ngSwitch]="col.field">
         {{col.header}}
         <p-sortIcon [field]="col.field"></p-sortIcon>
+        <input *ngSwitchCase="'vin'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, 'contains')">
       </th>
     </tr>
   </ng-template>
