@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { SelectItem } from 'primeng/api';
 
 export interface Car {
   vin?;
@@ -14,9 +15,11 @@ export interface Car {
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
 
   cars1: Car[];
+
+  colors: SelectItem[];
 
   cols: any[];
 
@@ -42,11 +45,19 @@ export class AppComponent {
       { field: 'brand', header: 'Brand' },
       { field: 'color', header: 'Color' }
     ];
+
+    this.colors = [
+      { label: 'White', value: 'White' },
+      { label: 'Green', value: 'Green' },
+      { label: 'Silver', value: 'Silver' },
+      { label: 'Black', value: 'Black' },
+      { label: 'Red', value: 'Red' },
+      { label: 'Maroon', value: 'Maroon' },
+      { label: 'Brown', value: 'Brown' },
+      { label: 'Orange', value: 'Orange' },
+      { label: 'Blue', value: 'Blue' }
+    ];
   }
 
-  onClick(event) {
-    // event.preventDefault();
-    // event.stopPropagation();
-    // event.stopImmediatePropagation();
-  }
+
 }

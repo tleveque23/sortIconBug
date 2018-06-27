@@ -1,13 +1,14 @@
 
 
 <h3 class="first">Single Sort</h3>
-<p-table [columns]="cols" [value]="cars1">
+<p-table #dt [columns]="cols" [value]="cars1">
   <ng-template pTemplate="header" let-columns>
     <tr>
       <th *ngFor="let col of columns" [pSortableColumn]="col.field" [ngSwitch]="col.field">
         {{col.header}}
         <p-sortIcon [field]="col.field"></p-sortIcon>
-        <input *ngSwitchCase="'vin'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, 'contains')">
+        <input *ngSwitchCase="'vin'" pInputText type="text" (click)="$event.stopPropagation()" (input)="dt.filter($event.target.value, col.field, 'contains')" >
+        <p-multiSelect *ngSwitchCase="'color'" [options]="colors" defaultLabel="All Colors" (click)="$event.stopPropagation()" (onChange)="dt.filter($event.value, col.field, 'in')"></p-multiSelect>
       </th>
     </tr>
   </ng-template>

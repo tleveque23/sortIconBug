@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { TableModule } from 'primeng/table';
+import { MultiSelectModule } from 'primeng/primeng';
 
 @NgModule({
   declarations: [
@@ -10,7 +11,8 @@ import { TableModule } from 'primeng/table';
   ],
   imports: [
     BrowserModule,
-    TableModule
+    TableModule,
+    MultiSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]
